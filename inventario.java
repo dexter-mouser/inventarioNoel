@@ -69,3 +69,15 @@ public class inventario {
                     System.out.println("opcion invalida");
             }
         }
+        leer.close();
+    }
+// ??
+    public static boolean buscarProducto(String[] inventario, String nombreBuscado) {
+        for (String producto : inventario) {
+            if (producto != null && producto.equals(nombreBuscado)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
