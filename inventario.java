@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class InventarioNoel {
+public class inventario {
     public static void main(String[] args) {
         String[] inventario = {"ducales", "festival", "tosh", null, null};
         //
@@ -20,9 +20,8 @@ public class InventarioNoel {
             System.out.println("4. cerrar Menu");
             System.out.println("===================");
             //
-            opcion = leer.nextInt();
+            opcion = Integer.parseInt(leer.nextLine());
             //
-        }
             switch (opcion) {
                 case 1:
                     System.out.println("1. Listar Producto");
@@ -48,8 +47,25 @@ public class InventarioNoel {
                     System.out.print("Nombre del nuevo producto:  ");
                     System.out.println("(Todo en minuscula y sin caracteres especiales)");
                     nuevoProducto = leer.nextLine();
-                    
+                    //
+                    agregado = false;
+                    for (int i = 0; i < inventario.length; i++) {
+                        if (inventario[i] == null) {
+                            inventario[i] = nuevoProducto;
+                            agregado = true;
+                            break;
+                        }
+                    }
+                    if (agregado) {
+                        System.out.println("Producto agregado");
+                    } else {
+                        System.out.println("Sin espacio, Error al agregar");
+                    }
+                    break;
                 case 4:
+                    System.out.println("Menu Cerrado");
+                    break;
+                default:
+                    System.out.println("opcion invalida");
             }
-    }
-    }
+        }
